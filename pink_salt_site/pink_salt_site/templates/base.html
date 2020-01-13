@@ -1,0 +1,62 @@
+
+{% load static %}
+<html>
+<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+<link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> 
+ <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">   
+    
+    
+<div class="row deep-orange lighten-3 z-depth-3" id="head" >
+    <div class ="col s6 offset-s3  " id="sitetitle" > <h1 class="white-text" id="title">PinkSalt</h1> </div>    
+    
+    
+</div>
+
+    <nav class="row deep-orange lighten-2 z-depth-5">
+    <div class="nav-wrapper">
+    <ul class="left">
+        <li><a href="/">Home</a></li>
+    <li> <a href="/recipe/browse">Browse Recipes</a> </li>
+    <li><a href="/recipe/">Submit Recipe</a></li>
+    <li> <a href="/about">About us</a></li>
+        
+        
+        
+    </ul>    
+        
+        <ul class="right">
+  {% if user.is_authenticated %}
+    <li>Hello, {{user.username}}.</li><li><a href="{% url 'logout' %}?next=/">Log out </a></li>
+   {% else %}
+    <li><a href="{% url 'login' %}?next=/">Login/Register</a></li>
+    {% endif %}
+        
+        
+        
+    </ul>     
+    </div>
+    
+    </nav>
+    
+<div class="slideshow">
+<img class="slide" src="{% static 'food1.jpeg'%}">
+<img class="slide" src="{% static 'food2.jpeg'%}">   
+<img class="slide" src="{% static 'food3.jpeg'%}">   
+<img class="slide" src="{% static 'food4.jpeg'%}">   
+<img class="slide" src="{% static 'food5.jpeg'%}">   
+    
+</div>
+
+{% block content %}
+{% endblock content %}
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous""></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script type="text/javascript" src="{% static 'script.js' %}"></script>
+{% block additionalscript %}
+{% endblock additionalscript %}
+</html>

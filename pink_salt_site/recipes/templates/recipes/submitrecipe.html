@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% if submitted %}
+<div class="container">
+<p class="success">Your Recipe was submitted successfully! </p>
+<div class="container">
+{% else %}
+<div class="container input-field">
+<form class="submitform" action="" enctype="multipart/form-data" method="post" novalidate>
+
+
+<table>
+{{form.as_table}}
+<tr>
+ <td> &nbsp;</td>
+ <td><input type="submit" value="Submit"></td>
+</tr>
+</table>
+{%csrf_token%}
+
+</form>
+<div class="container">
+{% endif %}
+
+{% endblock content %}
+
+{%block additionalscript %}
+<script>
+//materialize select
+
+ $(document).ready(function(){
+    $('select').formSelect();
+
+  titleinput=document.getElementById("id_title")
+    titleinput.placeholder="Title"
+    titleinput.style.fontSize="175%"
+          
+    timeinput=document.getElementById("id_time")
+    timeinput.placeholder="HH:MM:SS"
+          
+  
+          
+  });
+</script>
+{%endblock additionalscript%}
+
+

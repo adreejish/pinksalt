@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container sitecontent">
+<div class="recipetitle">{{recipe.title}}</div>
+<div class="coverimage"><img src="{{recipe.coverimage.url}}"</div>
+<div class="user">submitted by : {{recipe.user}}</div>
+<div class="date">submitted on: {{recipe.date}}</div>
+<div class="serves">serves {{recipe.serves}}</div>
+<div class="time">cooking time {{recipe.time}}</div>
+<div class="ingredients">ingredients : {{recipe.ingredients}}</div>
+<div class="directions">directions : {{recipe.directions}}</div>
+<div class="category">category : {{recipe.category}}</div>
+
+
+
+
+</div>
+
+{% endblock content %}

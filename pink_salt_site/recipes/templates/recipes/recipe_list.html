@@ -1,0 +1,41 @@
+{%extends 'base.html' %}
+{% block content %}
+<!--<div class="container">-->
+<div class="row recipes ">
+<!--<ul>-->
+{% for i in all_recipes %}
+	<div class="row recipes ">
+    <div class="col s12 m4">
+      <div class="card small">
+        <div class="card-image">
+          <img src="{{i.coverimage.url}}">
+         
+        </div>
+        <div class="card-content">
+          <p>{{i.title}}</p>
+        </div>
+        <div class="card-action">
+          <a href="browse/{{i.id}}">View recipe</a>
+        </div>
+      </div>
+    </div>
+	<!--<li>{{i.title}}</li>
+	<li><img src="{{i.coverimage.url}}"></li>-->
+{%endfor%}
+
+<script>
+    console.log("script ok")
+    slides=document.getElementsByClassName("slide")
+    console.log(slides)
+    for (i=0;i<slides.length;i++)
+        {
+            slides[i].style.opacity="50%"
+        }
+   // console.log(myvar);
+    </script>
+{%endblock content %}
+
+</ul>
+
+</div>
+
